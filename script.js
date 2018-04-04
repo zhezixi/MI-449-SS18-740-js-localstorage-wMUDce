@@ -1,19 +1,21 @@
 var current = document.getElementById('timeTheme')
 var setTheme = window.localStorage.getItem('theme') || 'day'
-function daythemechange () {
+var daythemechange = function() {
   if (current.className === 'day') {
     current.setAttribute('class', 'night')
     setTheme = 'night'
     window.localStorage.setItem('theme', setTheme)
-  } else {
+  } else if (current.className === 'night' || current.className === null) {
     current.setAttribute('class', 'day')
     setTheme = 'day'
     window.localstorage.setItem('theme', setTheme)
+  } else {
   }
 }
 
-window.onload = function () {
-  document.getElementById('button').addEventListener('click', daythemechange)
+var press = document.getElementById('button')
+if (press) {
+  press.addEventListener('click', daythemechange)
   current.setAttribute('class', setTheme)
 }
 
