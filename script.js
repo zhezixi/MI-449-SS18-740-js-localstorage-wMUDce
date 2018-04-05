@@ -1,25 +1,21 @@
-var current = document.getElementById('timeTheme')
-var setTheme = window.localStorage.getItem('theme') || 'day'
-var daythemechange = function() {
-  if (current.className === 'day') {
-    current.setAttribute('class', 'night')
-    setTheme = 'night'
-    window.localStorage.setItem('theme', setTheme)
-  } else if (current.className === 'night' || current.className === null) {
-    current.setAttribute('class', 'day')
-    setTheme = 'day'
-    window.localstorage.setItem('theme', setTheme)
+var currentTheme = window.localStorage.getItem('theme')
+function themechange() {
+  if (currentTheme === 'day') {
+    document.body.setAttribute('class', 'night')
+    currentTheme = 'night'
+    window.localStorage.setItem('theme', currentTheme)
   } else {
+    document.body.setAttribute('class', 'day')
+    currentTheme = 'day'
+    window.localstorage.setItem('theme', currentTheme)
   }
 }
 
-var press = document.getElementById('button')
+var press = document.getElementById('time')
 if (press) {
-  press.addEventListener('click', daythemechange)
-  current.setAttribute('class', setTheme)
+  press.addEventListener('click', themechange)
 }
 
-window.localStorage.setItem('theme', setTheme)
 
 var quantity = parseInt(window.localStorage.getItem('quantity'))
 var greeting = document.getElementById('greeting')
