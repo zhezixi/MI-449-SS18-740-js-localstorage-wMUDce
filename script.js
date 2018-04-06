@@ -1,4 +1,11 @@
 var currentTheme = window.localStorage.getItem('theme')
+
+if (currentTheme === 'night') {
+  document.body.setAttribute('class', 'night')
+} else {
+  document.body.setAttribute('class', 'day')
+}
+
 function themechange() {
   if (currentTheme === 'day') {
     document.body.setAttribute('class', 'night')
