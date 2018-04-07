@@ -14,7 +14,7 @@ function themechange() {
   } else {
     document.body.setAttribute('class', 'day')
     currentTheme = 'day'
-    window.localstorage.setItem('theme', currentTheme)
+    window.localStorage.setItem('theme', currentTheme)
   }
 }
 
